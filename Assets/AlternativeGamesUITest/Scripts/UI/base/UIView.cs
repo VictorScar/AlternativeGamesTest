@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +9,7 @@ public class UIView : MonoBehaviour
     [SerializeReference] protected UIAnimator showAnimator;
     [SerializeReference] protected UIAnimator hideAnimator;
 
+
     public RectTransform Rect => rect;
     public CanvasGroup CG => cg;
 
@@ -21,26 +20,39 @@ public class UIView : MonoBehaviour
         OnInit();
     }
 
-    [Button("Show")]
-    public void Show()
+ 
+    public void Show(bool immediately = false)
     {
         gameObject.SetActive(true);
         hideAnimator?.Cancel(this);
-        showAnimator?.Animate(this, OnShow);
+
+        if (!immediately)
+        {
+            showAnimator?.Animate(this, OnShow);
+        }
+        else
+        {
+            showAnimator?.AnimateImmediately(OnShow);
+        }
     }
 
-
-    [Button("Hide")]
-    public void Hide()
+  
+    public void Hide(bool immediately = false)
     {
         showAnimator?.Cancel(this);
-        hideAnimator?.Cancel(this);
-        hideAnimator?.Animate(this, OnHide);
+
+        if (!immediately)
+        {
+            hideAnimator?.Animate(this, OnHide);
+        }
+        else
+        {
+            hideAnimator?.AnimateImmediately(OnHide);
+        }
     }
 
     protected virtual void OnInit()
     {
-        
     }
 
     protected virtual void OnShow()
@@ -50,5 +62,17 @@ public class UIView : MonoBehaviour
     protected virtual void OnHide()
     {
         gameObject.SetActive(false);
+    }
+
+    [Button("Show")]
+    protected void TestShow()
+    {
+        Show();
+    }
+
+    [Button("Hide")]
+    protected void TestHide()
+    {
+        Hide();
     }
 }

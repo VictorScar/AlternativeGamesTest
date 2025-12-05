@@ -5,5 +5,6 @@ using UnityEngine;
 public struct PlayerRatingData
 {
     public string PlayerName;
+    public string IconID;
     public int Score;
 }

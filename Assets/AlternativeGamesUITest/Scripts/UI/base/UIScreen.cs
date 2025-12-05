@@ -2,17 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UIScreen : MonoBehaviour
+public class UIScreen : UIView
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private bool showInInit = false;
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnInit()
     {
-        
+        base.OnInit();
+
+        if (showInInit)
+        {
+            Show(immediately:true);
+        }
+        else
+        {
+            Hide(immediately:true);
+        }
     }
 }
