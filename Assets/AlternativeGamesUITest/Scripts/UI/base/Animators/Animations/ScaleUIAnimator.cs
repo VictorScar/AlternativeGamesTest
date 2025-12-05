@@ -20,9 +20,8 @@ public class ScaleUIAnimator : MonoBehaviour
     [Button("Animate")]
     public void Animate()
     {
-        _tcs = new TaskCompletionSource<bool>();
-        
         Debug.Log("Animate");
+        
         if (_animation == null)
         {
             _animation = StartCoroutine(AnimateInternal());

@@ -12,6 +12,7 @@ public class UIView : MonoBehaviour
     [SerializeField] protected UIAnimator hideAnimator;
     
     public RectTransform Rect => rect;
+    public CanvasGroup CG => cg;
 
     public void Init()
     {
