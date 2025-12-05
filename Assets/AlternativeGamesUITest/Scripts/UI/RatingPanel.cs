@@ -1,26 +1,81 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RatingPanel : UIView
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private UIClickableView[] views;
-
-    protected override void OnInit()
+    public class RatingPanel : UIView
     {
-        base.OnInit();
+        [SerializeField] private RectTransform root;
+        [SerializeField] private RatingRowView prefab;
+        
+        private List<RatingRowView> _views = new List<RatingRowView>();
 
-        if (views != null)
+        public int Length
         {
-            foreach (var view in views)
+            get => _views.Count;
+            set
             {
-                view.Init();
+                if(value == Length) return;
+
+                for (int i = 0; i < value; i++)
+                {
+                    RatingRowView view;
+                    
+                    if (i >= Length)
+                    {
+                        view = Instantiate(prefab, root);
+                        view.Init();
+                        _views.Add(view);
+                    }
+                    else
+                    {
+                        view = _views[i];
+                    }
+                    
+                    view.Show(immediately:true);
+                }
+
+                for (int i = value; i < Length; i++)
+                {
+                    _views[i].Hide(immediately:true);
+                }
+                
             }
         }
-    }
 
-    void Start()
-    {
-        Init();
+        public List<PlayerRatingViewData> Data
+        {
+            set
+            {
+                if (value != null)
+                {
+                    Length = value.Count;
+
+                    for (var i = 0; i < value.Count; i++)
+                    {
+                        var data = value[i];
+                        _views[i].Data = data;
+                    }
+                }
+
+                Length = 0;
+            }
+        }
+
+        protected override void OnInit()
+        {
+            base.OnInit();
+
+            var defaultViews = GetComponentsInChildren<RatingRowView>();
+
+            if (defaultViews != null)
+            {
+                foreach (var view in defaultViews)
+                {
+                    view.Init();
+                    _views.Add(view);
+                }
+            }
+        }
     }
 }

@@ -2,63 +2,66 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[Serializable]
-public abstract class UIAnimator
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] protected float duration = 0.3f;
-
-    [Header("Easing Settings")] [SerializeField]
-    protected EaseType easeType = EaseType.OutQuad;
-
-    protected Coroutine _animation;
-
-    public void Init(UIView view)
+    [Serializable]
+    public abstract class UIAnimator
     {
-        OnInit(view);
-    }
+        [SerializeField] protected float duration = 0.3f;
 
-    protected virtual void OnInit(UIView view)
-    {
-    }
+        [Header("Easing Settings")] [SerializeField]
+        protected EaseType easeType = EaseType.OutQuad;
 
-    public Coroutine Animate(UIView view, Action onComplete = null)
-    {
-        Cancel(view);
-        _animation = view.StartCoroutine(AnimateInternal(view, onComplete));
-        return _animation;
-    }
+        protected Coroutine _animation;
 
-    public void AnimateImmediately(Action onComplete = null)
-    {
-        OnAnimationEnded();
-        onComplete?.Invoke();
-    }
-
-    public void Cancel(UIView view)
-    {
-        if (_animation != null)
+        public void Init(UIView view)
         {
-            view.StopCoroutine(_animation);
+            OnInit(view);
+        }
+
+        protected virtual void OnInit(UIView view)
+        {
+        }
+
+        public Coroutine Animate(UIView view, Action onComplete = null)
+        {
+            Cancel(view);
+            _animation = view.StartCoroutine(AnimateInternal(view, onComplete));
+            return _animation;
+        }
+
+        public void AnimateImmediately(UIView view, Action onComplete = null)
+        {
+            OnAnimationEnded(view);
+            onComplete?.Invoke();
+        }
+
+        public void Cancel(UIView view)
+        {
+            if (_animation != null)
+            {
+                view.StopCoroutine(_animation);
+                _animation = null;
+            }
+        }
+
+        protected abstract IEnumerator OnAnimation(UIView view);
+
+        protected virtual void OnAnimationEnded(UIView view)
+        {
             _animation = null;
         }
-    }
 
-    protected abstract IEnumerator OnAnimation(UIView view);
+        protected float GetEasedTime(float t)
+        {
+            return EaseFunctions.Evaluate(easeType, t);
+        }
 
-    protected virtual void OnAnimationEnded()
-    {
-        _animation = null;
-    }
-
-    protected float GetEasedTime(float t)
-    {
-        return EaseFunctions.Evaluate(easeType, t);
-    }
-
-    private IEnumerator AnimateInternal(UIView view, Action onComplete)
-    {
-        yield return OnAnimation(view);
-        OnAnimationEnded();
-        onComplete?.Invoke();
+        private IEnumerator AnimateInternal(UIView view, Action onComplete)
+        {
+            yield return OnAnimation(view);
+            OnAnimationEnded(view);
+            onComplete?.Invoke();
+        }
     }
 }

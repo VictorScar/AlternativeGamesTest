@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class UIScreen : UIView
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private bool showInInit = false;
-
-    protected override void OnInit()
+    public class UIScreen : UIView
     {
-        base.OnInit();
+        [SerializeField] private bool showInInit = false;
 
-        if (showInInit)
+        protected override void OnInit()
         {
-            Show(immediately:true);
-        }
-        else
-        {
-            Hide(immediately:true);
+            base.OnInit();
+
+            if (showInInit)
+            {
+                Show(immediately:true);
+            }
+            else
+            {
+                Hide(immediately:true);
+            }
         }
     }
 }

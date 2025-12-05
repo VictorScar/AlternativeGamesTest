@@ -2,47 +2,50 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIClickableView : UIView, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
-    IPointerExitHandler, IPointerClickHandler
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private bool isInteractable = true;
-    [SerializeReference] private UIAnimator pointerDownAnimator;
-    [SerializeReference] private UIAnimator pointerUpAnimator;
-
-    public event Action OnClick;
-
-    public void OnPointerUp(PointerEventData eventData)
+    public class UIClickableView : UIView, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
+        IPointerExitHandler, IPointerClickHandler
     {
-        if (!isInteractable) return;
-        Debug.Log($"Pointer Up");
-        pointerDownAnimator?.Cancel(this);
-        pointerUpAnimator?.Cancel(this);
-        pointerUpAnimator?.Animate(this);
-    }
+        [SerializeField] private bool isInteractable = true;
+        [SerializeReference] private UIAnimator pointerDownAnimator;
+        [SerializeReference] private UIAnimator pointerUpAnimator;
 
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        if (!isInteractable) return;
-        Debug.Log($"Pointer Down");
-        pointerUpAnimator?.Cancel(this);
-        pointerDownAnimator?.Cancel(this);
-        pointerDownAnimator?.Animate(this);
-    }
+        public event Action OnClick;
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        Debug.Log($"On Pointer Enter");
-    }
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            if (!isInteractable) return;
+            //Debug.Log($"Pointer Up");
+            pointerDownAnimator?.Cancel(this);
+            pointerUpAnimator?.Cancel(this);
+            pointerUpAnimator?.Animate(this);
+        }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Debug.Log($"On Pointer Exit");
-    }
+        public void OnPointerDown(PointerEventData eventData)
+        {
+            if (!isInteractable) return;
+           // Debug.Log($"Pointer Down");
+            pointerUpAnimator?.Cancel(this);
+            pointerDownAnimator?.Cancel(this);
+            pointerDownAnimator?.Animate(this);
+        }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (!isInteractable) return;
-        Debug.Log($"Pointer Click");
-        OnClick?.Invoke();
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+           // Debug.Log($"On Pointer Enter");
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+           // Debug.Log($"On Pointer Exit");
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (!isInteractable) return;
+            Debug.Log($"Pointer Click");
+            OnClick?.Invoke();
+        }
     }
 }

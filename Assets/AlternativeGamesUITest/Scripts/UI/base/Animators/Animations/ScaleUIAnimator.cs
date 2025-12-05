@@ -2,36 +2,39 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-[Serializable]
-public class ScaleUIAnimator : UIAnimator
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private Vector2 targetScale = Vector2.one;
-    private Vector2 _defaultScale;
-
-    protected override void OnInit(UIView view)
+    [Serializable]
+    public class ScaleUIAnimator : UIAnimator
     {
-        base.OnInit(view);
-        _defaultScale = view.Rect.sizeDelta;
-    }
+        [SerializeField] private Vector2 targetScale = Vector2.one;
+        private Vector2 _defaultScale;
 
-    protected override IEnumerator OnAnimation(UIView view)
-    {
-        Vector2 startScale = view.Rect.localScale;
-
-        float elapsed = 0f;
-
-        while (elapsed < duration)
+        protected override void OnInit(UIView view)
         {
-            elapsed += Time.deltaTime;
-
-
-            float t = Mathf.Clamp01(elapsed / duration);
-            float easedT = GetEasedTime(t);
-            view.Rect.localScale = Vector2.LerpUnclamped(startScale, targetScale, easedT);
-
-            yield return null;
+            base.OnInit(view);
+            _defaultScale = view.Rect.sizeDelta;
         }
 
-        view.Rect.localScale = targetScale;
+        protected override IEnumerator OnAnimation(UIView view)
+        {
+            Vector2 startScale = view.Rect.localScale;
+
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+
+
+                float t = Mathf.Clamp01(elapsed / duration);
+                float easedT = GetEasedTime(t);
+                view.Rect.localScale = Vector2.LerpUnclamped(startScale, targetScale, easedT);
+
+                yield return null;
+            }
+
+            view.Rect.localScale = targetScale;
+        }
     }
 }

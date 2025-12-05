@@ -1,14 +1,20 @@
 using UnityEngine;
 
-public class RatingScreen : UIScreen
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private RatingPanel ratingPanel;
-
-    public RatingPanel RatingPanel => ratingPanel;
-    
-    protected override void OnInit()
+    public class RatingScreen : UIScreen
     {
-        base.OnInit();
-        ratingPanel.Init();
+        [SerializeField] private RatingPanel ratingPanel;
+        [SerializeField] private UIClickableView closeBtn;
+    
+        public RatingPanel RatingPanel => ratingPanel;
+        public UIClickableView CloseBtn => closeBtn;
+
+        protected override void OnInit()
+        {
+            base.OnInit();
+            ratingPanel.Init();
+            closeBtn.Init();
+        }
     }
 }

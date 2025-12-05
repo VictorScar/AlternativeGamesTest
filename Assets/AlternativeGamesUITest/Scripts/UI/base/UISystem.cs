@@ -1,41 +1,42 @@
 using UnityEngine;
 
-public class UISystem : MonoBehaviour
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField] private UIScreen[] screens;
+    public class UISystem : MonoBehaviour
+    {
+        [SerializeField] private UIScreen[] screens;
 
-    public void Init()
-    {
-        if (screens != null)
+        public void Init()
         {
-            foreach (var screen in screens)
+            if (screens != null)
             {
-                screen.Init();
-            }
-        }
-    }
-    
-    public T GetScreen<T>() where T : UIScreen
-    {
-        if (screens != null)
-        {
-            foreach (var screen in screens)
-            {
-                if (screen is T typedScreen)
+                foreach (var screen in screens)
                 {
-                    return typedScreen;
+                    screen.Init();
                 }
             }
         }
+    
+        public T GetScreen<T>() where T : UIScreen
+        {
+            if (screens != null)
+            {
+                foreach (var screen in screens)
+                {
+                    if (screen is T typedScreen)
+                    {
+                        return typedScreen;
+                    }
+                }
+            }
 
-        return null;
-    }
+            return null;
+        }
 
-    [Button("Get Screens")]
-    private void GetAllChildScreens()
-    {
-        screens = GetComponentsInChildren<UIScreen>();
+        [Button("Get Screens")]
+        private void GetAllChildScreens()
+        {
+            screens = GetComponentsInChildren<UIScreen>();
+        }
     }
 }
-
-

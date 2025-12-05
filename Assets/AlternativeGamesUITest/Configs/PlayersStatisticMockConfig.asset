@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe3f1490e5196c44842601b84d4e9ea, type: 3}
+  m_Name: PlayersStatisticMockConfig
+  m_EditorClassIdentifier: 
+  data:
+  - PlayerName: Boba
+    IconID: pl1
+    Score: 35
+  - PlayerName: Lee
+    IconID: pl2
+    Score: 40
+  - PlayerName: Gustav
+    IconID: pl3
+    Score: 24
+  - PlayerName: Rocco
+    IconID: pl4
+    Score: 27
+  - PlayerName: Endy
+    IconID: pl5
+    Score: 53
+  - PlayerName: Den
+    IconID: pl6
+    Score: 14
+  - PlayerName: Bill
+    IconID: pl7
+    Score: 37
+  - PlayerName: Serg
+    IconID: pl8
+    Score: 42
+  - PlayerName: Gaal
+    IconID: pl9
+    Score: 11
+  - PlayerName: Rembo
+    IconID: pl4
+    Score: 27
+  - PlayerName: Saack
+    IconID: pl10
+    Score: 47
+  - PlayerName: DMB2000
+    IconID: pl11
+    Score: 31
+  - PlayerName: Terminus
+    IconID: pl12
+    Score: 18
+  - PlayerName: Grey
+    IconID: pl13
+    Score: 23
+  - PlayerName: Polly
+    IconID: pl2
+    Score: 28
+  - PlayerName: Ermak
+    IconID: pl7
+    Score: 30
+  - PlayerName: Nicky
+    IconID: pl13
+    Score: 27
+  - PlayerName: Nutaku
+    IconID: pl14
+    Score: 36
+  - PlayerName: Alf
+    IconID: pl6
+    Score: 27
+  - PlayerName: Saymon
+    IconID: pl1
+    Score: 25
+  - PlayerName: Odry
+    IconID: pl9
+    Score: 27
+  - PlayerName: Rich
+    IconID: pl2
+    Score: 15
+  - PlayerName: MMA
+    IconID: pl8
+    Score: 33
+  - PlayerName: Urban
+    IconID: pl10
+    Score: 22
+  - PlayerName: Terry
+    IconID: pl4
+    Score: 13
+  - PlayerName: Tomb
+    IconID: pl5
+    Score: 45
+  - PlayerName: Esh
+    IconID: pl7
+    Score: 27
+  - PlayerName: Wayne
+    IconID: pl1
+    Score: 27
+  - PlayerName: Yello
+    IconID: pl2
+    Score: 11
+  - PlayerName: Bob
+    IconID: pl3
+    Score: 19
+  - PlayerName: Greg
+    IconID: pl14
+    Score: 18
+  - PlayerName: Mitch
+    IconID: pl9
+    Score: 27
+  - PlayerName: Fane
+    IconID: pl8
+    Score: 27
+  - PlayerName: DDT
+    IconID: pl5
+    Score: 27
+  - PlayerName: Umka
+    IconID: pl2
+    Score: 27
+  - PlayerName: Chain
+    IconID: pl6
+    Score: 27
+  - PlayerName: Cobra
+    IconID: pl9
+    Score: 27
+  - PlayerName: People
+    IconID: pl11
+    Score: 14
+  - PlayerName: Picachu
+    IconID: pl8
+    Score: 32
+  - PlayerName: Pank
+    IconID: pl10
+    Score: 28
+  - PlayerName: December
+    IconID: pl9
+    Score: 31
+  - PlayerName: Willy
+    IconID: pl6
+    Score: 35
+  - PlayerName: Rimma
+    IconID: pl7
+    Score: 47
+  - PlayerName: Dilan
+    IconID: pl13
+    Score: 27
+  - PlayerName: FASS
+    IconID: pl12
+    Score: 38
+  - PlayerName: Vicky
+    IconID: pl10
+    Score: 27
+  - PlayerName: Nunut
+    IconID: pl3
+    Score: 44
+  - PlayerName: Oliver
+    IconID: pl7
+    Score: 27
+  - PlayerName: Dumbay
+    IconID: pl8
+    Score: 14
+  - PlayerName: Hall
+    IconID: pl4
+    Score: 48

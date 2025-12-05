@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using AlternativeGamesTest.UI;
 using UnityEngine;
 
 public class TestAnimator : UIView

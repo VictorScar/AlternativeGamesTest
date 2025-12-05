@@ -1,27 +1,35 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public class FadeUIAnimator : UIAnimator
+namespace AlternativeGamesTest.UI
 {
-    [SerializeField, Range(0f, 1f)] private float targetAlpha = 1f;
-   
-    protected override IEnumerator OnAnimation(UIView view)
+    [Serializable]
+    public class FadeUIAnimator : UIAnimator
     {
-        float startAlpha = view.CG.alpha;
-        float elapsed = 0f;
-
-        while (elapsed < duration)
+        [SerializeField, Range(0f, 1f)] private float targetAlpha = 1f;
+   
+        protected override IEnumerator OnAnimation(UIView view)
         {
-            elapsed += Time.deltaTime;
-            float t = Mathf.Clamp01(elapsed / duration);
-            float easedT = GetEasedTime(t);
-            view.CG.alpha = Mathf.LerpUnclamped(startAlpha, targetAlpha, easedT);
-            yield return null;
+            float startAlpha = view.CG.alpha;
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                elapsed += Time.deltaTime;
+                float t = Mathf.Clamp01(elapsed / duration);
+                float easedT = GetEasedTime(t);
+                view.CG.alpha = Mathf.LerpUnclamped(startAlpha, targetAlpha, easedT);
+                yield return null;
+            }
+
+            
         }
 
-        view.CG.alpha = targetAlpha;
+        protected override void OnAnimationEnded(UIView view)
+        {
+            base.OnAnimationEnded(view);
+            view.CG.alpha = targetAlpha;
+        }
     }
 }

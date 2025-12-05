@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public struct PlayerRatingData
+namespace AlternativeGamesTest.Service
 {
-    public string PlayerName;
-    public string IconID;
-    public int Score;
+    [Serializable]
+    public struct PlayerRatingData
+    {
+        public string PlayerName;
+        public string IconID;
+        public int Score;
+    }
 }
