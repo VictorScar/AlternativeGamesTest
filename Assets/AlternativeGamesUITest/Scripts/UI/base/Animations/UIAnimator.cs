@@ -6,7 +6,10 @@ using UnityEngine;
 public abstract class UIAnimator : MonoBehaviour
 {
     [SerializeField] protected float duration = 0.3f;
-   
+    [Header("Easing Settings")]
+    [SerializeField] protected EaseType easeType = EaseType.OutQuad;
+    
+    
     protected Coroutine _animation;
 
     public void Init(UIView view)
@@ -40,6 +43,11 @@ public abstract class UIAnimator : MonoBehaviour
     protected virtual void OnAnimationEnded()
     {
         _animation = null;
+    }
+    
+    protected float GetEasedTime(float t)
+    {
+        return EaseFunctions.Evaluate(easeType, t);
     }
     
     private IEnumerator AnimateInternal(UIView view, Action onComplete)
