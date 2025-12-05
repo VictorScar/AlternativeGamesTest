@@ -5,24 +5,25 @@ using UnityEngine;
 
 public class TestAnimator : UIView
 {
+    [SerializeReference] private FadeUIAnimator fgv;
    private void Start()
    {
        Init();
    }
 
-   [Button("In")]
+  // [Button("In")]
     public void Show()
     {
-        showAnimator?.Cancel();
-        hideAnimator?.Cancel();
+        showAnimator?.Cancel(this);
+        hideAnimator?.Cancel(this);
         showAnimator.Animate(this, OnShow);
     }
 
-    [Button("Out")]
+   // [Button("Out")]
     public void Hide()
     {
-        showAnimator?.Cancel();
-        hideAnimator?.Cancel();
+        showAnimator?.Cancel(this);
+        hideAnimator?.Cancel(this);
         hideAnimator.Animate(this, OnHide);
     }
     

@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeUIAnimation : UIAnimator
+[Serializable]
+public class FadeUIAnimator : UIAnimator
 {
     [SerializeField, Range(0f, 1f)] private float targetAlpha = 1f;
    

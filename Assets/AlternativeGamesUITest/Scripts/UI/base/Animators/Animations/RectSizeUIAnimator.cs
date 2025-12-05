@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
+[Serializable]
 public class RectSizeUIAnimator : UIAnimator
 {
     [SerializeField] private Vector2 targetSizeMultiplier = Vector2.one;

@@ -182,6 +182,7 @@ GameObject:
   - component: {fileID: 401239523209012597}
   - component: {fileID: 1205239524859335101}
   - component: {fileID: 3756001380912795890}
+  - component: {fileID: 7744602291447776757}
   m_Layer: 0
   m_Name: result view
   m_TagString: Untagged
@@ -222,7 +223,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87d0f4ea98404d41b19312ba4d8f19d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rect: {fileID: 5639283012355896457}
+  cg: {fileID: 7744602291447776757}
+  showAnimator:
+    rid: -2
+  hideAnimator:
+    rid: -2
   isInteractable: 1
+  pointerDownAnimator:
+    rid: 6300550297577848841
+  pointerUpAnimator:
+    rid: 6300550297577848842
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 6300550297577848841
+      type: {class: ScaleUIAnimator, ns: , asm: Assembly-CSharp}
+      data:
+        duration: 0.3
+        easeType: 4
+        targetScale: {x: 0.8, y: 0.8}
+    - rid: 6300550297577848842
+      type: {class: ScaleUIAnimator, ns: , asm: Assembly-CSharp}
+      data:
+        duration: 0.3
+        easeType: 5
+        targetScale: {x: 1, y: 1}
 --- !u!222 &1205239524859335101
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -261,6 +289,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &7744602291447776757
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074544112321883233}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3515733988016721093
 GameObject:
   m_ObjectHideFlags: 0

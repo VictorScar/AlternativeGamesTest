@@ -1,43 +1,37 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-
 using UnityEngine;
 
-public class ScaleUIAnimator : MonoBehaviour
+[Serializable]
+public class ScaleUIAnimator : UIAnimator
 {
-    [SerializeField] private RectTransform rect;
-    [SerializeField] private CanvasGroup cg;
+    [SerializeField] private Vector2 targetScale = Vector2.one;
+    private Vector2 _defaultScale;
 
-    [SerializeField] private Vector3 targetScale = new Vector3(1, 2, 1);
-    [SerializeField] private float animationSpeed = 2f;
-    private Coroutine _animation;
-    private TaskCompletionSource<bool> _tcs;
-    public event Action onStart; 
-    public event Action onEnd; 
-
-    [Button("Animate")]
-    public void Animate()
+    protected override void OnInit(UIView view)
     {
-        Debug.Log("Animate");
-        
-        if (_animation == null)
-        {
-            _animation = StartCoroutine(AnimateInternal());
-        }
+        base.OnInit(view);
+        _defaultScale = view.Rect.sizeDelta;
     }
 
-
-    private IEnumerator AnimateInternal()
+    protected override IEnumerator OnAnimation(UIView view)
     {
-        while ((rect.localScale - targetScale).sqrMagnitude > 0.0001f)
+        Vector2 startScale = view.Rect.localScale;
+
+        float elapsed = 0f;
+
+        while (elapsed < duration)
         {
-            rect.transform.localScale = Vector3.MoveTowards( rect.transform.localScale, targetScale, animationSpeed * Time.deltaTime);
+            elapsed += Time.deltaTime;
+
+
+            float t = Mathf.Clamp01(elapsed / duration);
+            float easedT = GetEasedTime(t);
+            view.Rect.localScale = Vector2.LerpUnclamped(startScale, targetScale, easedT);
+
             yield return null;
         }
 
-        _tcs.TrySetResult(true);
-        _animation = null;
+        view.Rect.localScale = targetScale;
     }
 }

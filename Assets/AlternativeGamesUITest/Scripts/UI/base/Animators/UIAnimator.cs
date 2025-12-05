@@ -3,7 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class UIAnimator : MonoBehaviour
+[Serializable]
+public abstract class UIAnimator
 {
     [SerializeField] protected float duration = 0.3f;
     [Header("Easing Settings")]
@@ -24,16 +25,16 @@ public abstract class UIAnimator : MonoBehaviour
 
     public Coroutine Animate(UIView view, Action action = null)
     {
-        Cancel();
-        _animation = StartCoroutine(AnimateInternal(view, action));
+        Cancel(view);
+        _animation = view.StartCoroutine(AnimateInternal(view, action));
         return _animation;
     }
 
-    public void Cancel()
+    public void Cancel(UIView view)
     {
         if (_animation != null)
         {
-            StopCoroutine(_animation);
+            view.StopCoroutine(_animation);
             _animation = null;
         }
     }

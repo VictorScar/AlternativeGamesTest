@@ -8,9 +8,9 @@ public class UIView : MonoBehaviour
     [SerializeField] protected RectTransform rect;
     [SerializeField] protected CanvasGroup cg;
 
-    [SerializeField] protected UIAnimator showAnimator;
-    [SerializeField] protected UIAnimator hideAnimator;
-    
+    [SerializeReference] protected UIAnimator showAnimator;
+    [SerializeReference] protected UIAnimator hideAnimator;
+
     public RectTransform Rect => rect;
     public CanvasGroup CG => cg;
 
@@ -18,40 +18,37 @@ public class UIView : MonoBehaviour
     {
         showAnimator?.Init(this);
         hideAnimator?.Init(this);
+        OnInit();
     }
-    
+
     [Button("Show")]
     public void Show()
     {
         gameObject.SetActive(true);
-
-        if (hideAnimator) hideAnimator.Cancel();
-        
-        if (showAnimator)
-        {
-            showAnimator.Animate(this, OnShow);
-        }
+        hideAnimator?.Cancel(this);
+        showAnimator?.Animate(this, OnShow);
     }
 
 
     [Button("Hide")]
     public void Hide()
     {
-        if (showAnimator) showAnimator.Cancel();
-        
-        if (hideAnimator)
-        {
-            hideAnimator.Animate(this, OnHide);
-        }
+        showAnimator?.Cancel(this);
+        hideAnimator?.Cancel(this);
+        hideAnimator?.Animate(this, OnHide);
     }
-    
+
+    protected virtual void OnInit()
+    {
+        
+    }
+
     protected virtual void OnShow()
     {
-        
     }
-    
+
     protected virtual void OnHide()
     {
-       gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }
