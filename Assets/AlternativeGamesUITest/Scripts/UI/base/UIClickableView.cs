@@ -1,10 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIClickableView : MonoBehaviour, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
+public class UIClickableView : UIView, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
     IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] private bool isInteractable = true;
