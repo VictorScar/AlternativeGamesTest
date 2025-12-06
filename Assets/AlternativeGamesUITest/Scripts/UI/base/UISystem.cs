@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace AlternativeGamesTest.UI
+namespace AlternativeGamesTest.UI.Base
 {
     public class UISystem : MonoBehaviour
     {

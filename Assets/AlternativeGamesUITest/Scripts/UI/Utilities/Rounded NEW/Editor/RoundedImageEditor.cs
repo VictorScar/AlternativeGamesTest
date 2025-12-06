@@ -1,33 +1,36 @@
 using UnityEditor;
 using UnityEditor.UI;
 
-[CustomEditor(typeof(RoundedImageV2))]
-[CanEditMultipleObjects]
-public class RoundedImageV2Editor : ImageEditor
+namespace AlternativeGamesTest.UI.Utils
 {
-    SerializedProperty _cornerRadius;
-    SerializedProperty _softness;
-
-    protected override void OnEnable()
+    [CustomEditor(typeof(RoundedImage))]
+    [CanEditMultipleObjects]
+    public class RoundedImageV2Editor : ImageEditor
     {
-        base.OnEnable();
-        _cornerRadius = serializedObject.FindProperty("cornerRadius");
-        _softness = serializedObject.FindProperty("softness");
-    }
+        SerializedProperty _cornerRadius;
+        SerializedProperty _softness;
 
-    public override void OnInspectorGUI()
-    {
-        // Рисуем стандартный инспектор Image (Source Image, Color, etc)
-        base.OnInspectorGUI();
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            _cornerRadius = serializedObject.FindProperty("cornerRadius");
+            _softness = serializedObject.FindProperty("softness");
+        }
 
-        EditorGUILayout.Space();
-        EditorGUILayout.LabelField("Rounded Settings", EditorStyles.boldLabel);
+        public override void OnInspectorGUI()
+        {
+            // Рисуем стандартный инспектор Image (Source Image, Color, etc)
+            base.OnInspectorGUI();
 
-        serializedObject.Update();
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Rounded Settings", EditorStyles.boldLabel);
+
+            serializedObject.Update();
         
-        EditorGUILayout.PropertyField(_cornerRadius);
-        EditorGUILayout.PropertyField(_softness);
+            EditorGUILayout.PropertyField(_cornerRadius);
+            EditorGUILayout.PropertyField(_softness);
 
-        serializedObject.ApplyModifiedProperties();
+            serializedObject.ApplyModifiedProperties();
+        }
     }
 }

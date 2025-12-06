@@ -1286,7 +1286,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
-  cornerRadius: 20
+  cornerRadius: 24.6
   softness: 1
 --- !u!114 &2605871873664851102
 MonoBehaviour:

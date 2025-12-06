@@ -3,6 +3,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AlternativeGamesTest.Service;
 using AlternativeGamesTest.UI;
+using AlternativeGamesTest.UI.Base;
 
 namespace AlternativeGamesTest.Scenario
 {

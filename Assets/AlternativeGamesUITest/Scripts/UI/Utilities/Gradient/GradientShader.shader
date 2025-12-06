@@ -1,4 +1,4 @@
-Shader "UI/GradientMaskedElement"
+Shader "UI/GradientShader"
 {
     Properties
     {    

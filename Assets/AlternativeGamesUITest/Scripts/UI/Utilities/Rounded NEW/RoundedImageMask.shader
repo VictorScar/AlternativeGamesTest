@@ -1,4 +1,4 @@
-Shader "UI/RoundedImageV2"
+Shader "UI/RoundedImage"
 {
     Properties
     {

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: newRoundMat
+  m_Name: RoundCornersMat
   m_Shader: {fileID: 4800000, guid: e8f1cb419a551d54990e883f2b28435c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

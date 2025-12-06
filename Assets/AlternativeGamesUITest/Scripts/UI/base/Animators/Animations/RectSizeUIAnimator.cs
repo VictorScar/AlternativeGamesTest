@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections;
-using AlternativeGamesTest.UI;
+using AlternativeGamesTest.UI.Base;
 using UnityEngine;
 
 [Serializable]

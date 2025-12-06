@@ -1,3 +1,4 @@
+using AlternativeGamesTest.UI.Base;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,7 +58,10 @@ namespace AlternativeGamesTest.UI
             }
         }
     }
+}
 
+namespace AlternativeGamesTest.UI.Base
+{
     public struct PlayerRatingViewData
     {
         public string PlayerName;

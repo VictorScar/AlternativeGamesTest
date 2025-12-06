@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace AlternativeGamesTest.UI
+namespace AlternativeGamesTest.UI.Base
 {
     public class UIClickableView : UIView, IPointerUpHandler, IPointerDownHandler, IPointerEnterHandler,
         IPointerExitHandler, IPointerClickHandler

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using AlternativeGamesTest.Service;
 using UnityEngine;
 
 public class ConfigService

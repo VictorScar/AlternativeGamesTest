@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace AlternativeGamesTest.UI
+namespace AlternativeGamesTest.UI.Base
 {
     [Serializable]
     public abstract class UIAnimator

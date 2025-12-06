@@ -1,27 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-[CreateAssetMenu(menuName = "Configs/PlayerIcons", fileName = "PlayerIconsConfig")]
-public class PlayersIconConfig : ScriptableObject
+namespace AlternativeGamesTest.Service
 {
-    [SerializeField] private PlayerIconData[] datas;
-    [SerializeField] private Sprite defaultIcon;
-    
-    public Sprite GetIconByID(string id)
+    [CreateAssetMenu(menuName = "Configs/PlayerIcons", fileName = "PlayerIconsConfig")]
+    public class PlayersIconConfig : ScriptableObject
     {
-        if (datas != null)
+        [SerializeField] private PlayerIconData[] datas;
+        [SerializeField] private Sprite defaultIcon;
+    
+        public Sprite GetIconByID(string id)
         {
-            foreach (var data in datas)
+            if (datas != null)
             {
-                if (data.ID == id)
+                foreach (var data in datas)
                 {
-                    return data.Icon;
+                    if (data.ID == id)
+                    {
+                        return data.Icon;
+                    }
                 }
             }
-        }
 
-        return defaultIcon;
+            return defaultIcon;
+        }
     }
 }

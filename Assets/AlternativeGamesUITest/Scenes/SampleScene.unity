@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 89781230}
   - component: {fileID: 89781232}
   - component: {fileID: 89781231}
+  - component: {fileID: 89781233}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -242,6 +243,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 89781229}
   m_CullTransparentMesh: 1
+--- !u!114 &89781233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89781229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe47eb7f831d4bbdbacfa1186d3e5b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 0
+  offset: 0.04
+  scale: 1.45
+  colorTop: {r: 1, g: 1, b: 1, a: 1}
+  colorBottom: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &119156545
 GameObject:
   m_ObjectHideFlags: 0
@@ -727,26 +745,14 @@ MonoBehaviour:
     rid: -2
   isInteractable: 1
   pointerDownAnimator:
-    rid: 6300550297577848845
+    rid: -2
   pointerUpAnimator:
-    rid: 6300550297577848846
+    rid: -2
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 6300550297577848845
-      type: {class: ScaleUIAnimator, ns: AlternativeGamesTest.UI, asm: Assembly-CSharp}
-      data:
-        duration: 0.3
-        easeType: 4
-        targetScale: {x: 0.8, y: 0.8}
-    - rid: 6300550297577848846
-      type: {class: ScaleUIAnimator, ns: AlternativeGamesTest.UI, asm: Assembly-CSharp}
-      data:
-        duration: 0.3
-        easeType: 5
-        targetScale: {x: 1, y: 1}
 --- !u!225 &783740868
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1014,27 +1020,17 @@ MonoBehaviour:
   rect: {fileID: 210843874}
   cg: {fileID: 880356290}
   showAnimator:
-    rid: 6300550297577848847
+    rid: -2
   hideAnimator:
-    rid: 6300550297577848848
+    rid: -2
   showInInit: 0
   ratingPanel: {fileID: 346216262}
   closeBtn: {fileID: 783740867}
   references:
     version: 2
     RefIds:
-    - rid: 6300550297577848847
-      type: {class: FadeUIAnimator, ns: AlternativeGamesTest.UI, asm: Assembly-CSharp}
-      data:
-        duration: 0.3
-        easeType: 4
-        targetAlpha: 1
-    - rid: 6300550297577848848
-      type: {class: FadeUIAnimator, ns: AlternativeGamesTest.UI, asm: Assembly-CSharp}
-      data:
-        duration: 0.3
-        easeType: 5
-        targetAlpha: 0
+    - rid: -2
+      type: {class: , ns: , asm: }
 --- !u!1 &893142529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1396,6 +1392,7 @@ GameObject:
   - component: {fileID: 1195920223}
   - component: {fileID: 1195920225}
   - component: {fileID: 1195920224}
+  - component: {fileID: 1195920226}
   m_Layer: 0
   m_Name: bg
   m_TagString: Untagged
@@ -1460,6 +1457,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195920222}
   m_CullTransparentMesh: 1
+--- !u!114 &1195920226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195920222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe47eb7f831d4bbdbacfa1186d3e5b4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  angle: 84
+  offset: -0.3
+  scale: 1
+  colorTop: {r: 1, g: 1, b: 1, a: 1}
+  colorBottom: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1206434824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1486,7 @@ GameObject:
   - component: {fileID: 1206434827}
   - component: {fileID: 1206434826}
   m_Layer: 0
-  m_Name: Text (TMP)
+  m_Name: header text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1517,7 +1531,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Results
+  m_text: Players rating
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1682,8 +1696,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe47eb7f831d4bbdbacfa1186d3e5b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  angle: 96
-  offset: -0.25
+  angle: 98
+  offset: -0.17
   scale: 1
   colorTop: {r: 1, g: 1, b: 1, a: 1}
   colorBottom: {r: 0, g: 0, b: 0, a: 1}
@@ -2248,7 +2262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2256,11 +2270,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1078.0149
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2296,11 +2310,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 559.00745
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 5639283012355896457, guid: 4584933a1c14759449b32190f781f00a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

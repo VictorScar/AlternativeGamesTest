@@ -1,3 +1,4 @@
+using AlternativeGamesTest.UI.Base;
 using UnityEngine;
 
 namespace AlternativeGamesTest.UI

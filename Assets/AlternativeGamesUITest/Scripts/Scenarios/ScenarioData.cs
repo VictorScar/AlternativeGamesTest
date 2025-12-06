@@ -1,5 +1,5 @@
 using AlternativeGamesTest.Service;
-using AlternativeGamesTest.UI;
+using AlternativeGamesTest.UI.Base;
 
 namespace AlternativeGamesTest.Scenario
 {

@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading;
 using AlternativeGamesTest.Scenario;
 using AlternativeGamesTest.Service;
-using AlternativeGamesTest.UI;
+using AlternativeGamesTest.UI.Base;
 using UnityEngine;
 
 public class TestInitializer : MonoBehaviour
@@ -14,7 +12,7 @@ public class TestInitializer : MonoBehaviour
     [SerializeField] private PlayersStatisticDataConfig mockRatingDataConfig;
 
     private GameServices _gameServices;
-    private CancellationTokenSource _gameCancelationSource;
+    private CancellationTokenSource _gameCancellationSource;
 
     void Start()
     {
@@ -23,7 +21,7 @@ public class TestInitializer : MonoBehaviour
 
     private void Init()
     {
-        _gameCancelationSource = new CancellationTokenSource();
+        _gameCancellationSource = new CancellationTokenSource();
         var configService = new ConfigService(iconsConfig);
         _gameServices = new GameServices(configService, mockRatingDataConfig);
 
@@ -31,6 +29,6 @@ public class TestInitializer : MonoBehaviour
         scenarioContainer.Init(_gameServices, uiSystem);
 
         var ratingScenario = scenarioContainer.GetScenario<ShowRatingScenario>();
-        ratingScenario.Run(_gameCancelationSource.Token);
+        ratingScenario.Run(_gameCancellationSource.Token);
     }
 }

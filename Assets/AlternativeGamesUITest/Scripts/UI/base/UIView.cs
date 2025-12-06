@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AlternativeGamesTest.UI
+namespace AlternativeGamesTest.UI.Base
 {
     public class UIView : MonoBehaviour
     {

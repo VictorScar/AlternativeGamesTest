@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
-public struct PlayerIconData
+namespace AlternativeGamesTest.Service
 {
-    public string ID;
-    public Sprite Icon;
+    [Serializable]
+    public struct PlayerIconData
+    {
+        public string ID;
+        public Sprite Icon;
+    }
 }
