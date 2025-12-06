@@ -26,7 +26,7 @@ namespace AlternativeGamesTest.UI.Base
         public Coroutine Animate(UIView view, Action onComplete = null)
         {
             Cancel(view);
-            _animation = view.StartCoroutine(AnimateInternal(view, onComplete));
+            if(view.gameObject.activeInHierarchy) _animation = view.StartCoroutine(AnimateInternal(view, onComplete));
             return _animation;
         }
 

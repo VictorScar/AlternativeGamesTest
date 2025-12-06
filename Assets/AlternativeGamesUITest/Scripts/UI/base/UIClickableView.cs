@@ -17,7 +17,7 @@ namespace AlternativeGamesTest.UI.Base
         {
             if (!isInteractable) return;
             //Debug.Log($"Pointer Up");
-            pointerDownAnimator?.Cancel(this);
+           // pointerDownAnimator?.Cancel(this);
             pointerUpAnimator?.Cancel(this);
             pointerUpAnimator?.Animate(this);
         }

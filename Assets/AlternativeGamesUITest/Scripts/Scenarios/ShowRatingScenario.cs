@@ -22,7 +22,7 @@ namespace AlternativeGamesTest.Scenario
             _statisticService = Data.Services.StatisticService;
         }
 
-        protected override Task RunInternal(CancellationToken token)
+        protected override async Task RunInternal(CancellationToken token)
         {
             _selectedElement = 0;
             var ratingData = _statisticService.GetRatingData();
@@ -45,15 +45,17 @@ namespace AlternativeGamesTest.Scenario
 
             _panel.Data = ratingViewData;
             _panel.onElementClicked += OnElementClicked;
-            _panel.SelectView(_selectedElement);
             _screen.Show();
+            _panel.SelectView(_selectedElement);
 
-            return Task.CompletedTask;
+            await _screen.CloseBtn.WaitForClickAsync(Token);
         }
 
         protected override void OnStop()
         {
             if(_panel) _panel.onElementClicked -= OnElementClicked;
+            
+            _screen?.Hide();
         }
 
         private void OnElementClicked(int viewIndex)

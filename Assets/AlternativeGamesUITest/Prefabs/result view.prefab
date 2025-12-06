@@ -488,24 +488,24 @@ MonoBehaviour:
   icon: {fileID: 1054387880097482431}
   score: {fileID: 6271434941629890824}
   selectedAnimation:
-    rid: 6300550328000708608
+    rid: 6300550328000708614
   deselectedAnimation:
-    rid: 6300550328000708609
+    rid: 6300550328000708615
   references:
     version: 2
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
-    - rid: 6300550328000708608
-      type: {class: RectSizeUIAnimator, ns: , asm: Assembly-CSharp}
+    - rid: 6300550328000708614
+      type: {class: RectSizeUIAnimator, ns: AlternativeGamesTest.UI.Base, asm: Assembly-CSharp}
       data:
-        duration: 0.5
+        duration: 0.3
         easeType: 4
         targetSizeMultiplier: {x: 1, y: 2}
-    - rid: 6300550328000708609
-      type: {class: RectSizeUIAnimator, ns: , asm: Assembly-CSharp}
+    - rid: 6300550328000708615
+      type: {class: RectSizeUIAnimator, ns: AlternativeGamesTest.UI.Base, asm: Assembly-CSharp}
       data:
-        duration: 0.5
+        duration: 0.3
         easeType: 5
         targetSizeMultiplier: {x: 1, y: 1}
 --- !u!222 &1205239524859335101

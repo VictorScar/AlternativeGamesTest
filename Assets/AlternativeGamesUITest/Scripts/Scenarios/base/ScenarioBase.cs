@@ -36,6 +36,7 @@ namespace AlternativeGamesTest.Scenario
         {
             _source = CancellationTokenSource.CreateLinkedTokenSource(token);
             await RunInternal(Token);
+            Stop();
         }
 
 
