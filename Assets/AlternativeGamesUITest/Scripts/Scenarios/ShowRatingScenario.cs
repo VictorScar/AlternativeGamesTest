@@ -12,7 +12,7 @@ namespace AlternativeGamesTest.Scenario
         private RatingScreen _screen;
         private RatingPanel _panel;
         private PlayerStatisticService _statisticService;
-
+        private int _selectedElement;
 
         protected override void OnInit()
         {
@@ -24,6 +24,7 @@ namespace AlternativeGamesTest.Scenario
 
         protected override Task RunInternal(CancellationToken token)
         {
+            _selectedElement = 0;
             var ratingData = _statisticService.GetRatingData();
             var ratingViewData = new List<PlayerRatingViewData>();
 
@@ -43,9 +44,22 @@ namespace AlternativeGamesTest.Scenario
             }
 
             _panel.Data = ratingViewData;
+            _panel.onElementClicked += OnElementClicked;
+            _panel.SelectView(_selectedElement);
             _screen.Show();
 
             return Task.CompletedTask;
+        }
+
+        protected override void OnStop()
+        {
+            if(_panel) _panel.onElementClicked -= OnElementClicked;
+        }
+
+        private void OnElementClicked(int viewIndex)
+        {
+            _selectedElement = viewIndex;
+            _panel.SelectView(_selectedElement);
         }
     }
 }

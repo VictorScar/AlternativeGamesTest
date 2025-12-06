@@ -1,49 +1,10 @@
 using System.Collections.Generic;
 using AlternativeGamesTest.UI.Base;
-using UnityEngine;
 
 namespace AlternativeGamesTest.UI
 {
-    public class RatingPanel : UIView
+    public class RatingPanel : ArrayClickableView<RatingRowView>
     {
-        [SerializeField] private RectTransform root;
-        [SerializeField] private RatingRowView prefab;
-        
-        private List<RatingRowView> _views = new List<RatingRowView>();
-
-        public int Length
-        {
-            get => _views.Count;
-            set
-            {
-                if(value == Length) return;
-
-                for (int i = 0; i < value; i++)
-                {
-                    RatingRowView view;
-                    
-                    if (i >= Length)
-                    {
-                        view = Instantiate(prefab, root);
-                        view.Init();
-                        _views.Add(view);
-                    }
-                    else
-                    {
-                        view = _views[i];
-                    }
-                    
-                    view.Show(immediately:true);
-                }
-
-                for (int i = value; i < Length; i++)
-                {
-                    _views[i].Hide(immediately:true);
-                }
-                
-            }
-        }
-
         public List<PlayerRatingViewData> Data
         {
             set
@@ -63,18 +24,13 @@ namespace AlternativeGamesTest.UI
             }
         }
 
-        protected override void OnInit()
+        public void SelectView(int viewIndex)
         {
-            base.OnInit();
-
-            var defaultViews = GetComponentsInChildren<RatingRowView>();
-
-            if (defaultViews != null)
+            if (viewIndex >= 0 && viewIndex < Length)
             {
-                foreach (var view in defaultViews)
+                for (int i = 0; i < Length; i++)
                 {
-                    view.Init();
-                    _views.Add(view);
+                    _views[i].IsSelected = i == viewIndex;
                 }
             }
         }

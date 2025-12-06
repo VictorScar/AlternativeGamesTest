@@ -51,9 +51,7 @@ namespace AlternativeGamesTest.Scenario
 
         protected abstract Task RunInternal(CancellationToken token);
 
-        protected virtual void OnStop()
-        {
-        }
+        protected abstract void OnStop();
 
         protected virtual void OnUpdate(float deltaTime)
         {

@@ -11,8 +11,8 @@ namespace AlternativeGamesTest.UI
         [SerializeField] private TMP_Text playerName;
         [SerializeField] private Image icon;
         [SerializeField] private TMP_Text score;
-        [SerializeField] private UIAnimator selectedAnimation;
-        [SerializeField] private UIAnimator deselectedAnimation;
+        [SerializeReference] private UIAnimator selectedAnimation;
+        [SerializeReference] private UIAnimator deselectedAnimation;
 
         public string PlayerName
         {
@@ -56,6 +56,13 @@ namespace AlternativeGamesTest.UI
                 IconID = value.Icon;
                 Score = value.Score;
             }
+        }
+
+        protected override void OnInit()
+        {
+            base.OnInit();
+            selectedAnimation?.Init(this);
+            deselectedAnimation?.Init(this);
         }
     }
 }

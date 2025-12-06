@@ -11,7 +11,7 @@ namespace AlternativeGamesTest.UI.Base
         [SerializeReference] private UIAnimator pointerDownAnimator;
         [SerializeReference] private UIAnimator pointerUpAnimator;
 
-        public event Action OnClick;
+        public event Action onClick;
 
         public void OnPointerUp(PointerEventData eventData)
         {
@@ -45,7 +45,7 @@ namespace AlternativeGamesTest.UI.Base
         {
             if (!isInteractable) return;
             Debug.Log($"Pointer Click");
-            OnClick?.Invoke();
+            onClick?.Invoke();
         }
     }
 }
