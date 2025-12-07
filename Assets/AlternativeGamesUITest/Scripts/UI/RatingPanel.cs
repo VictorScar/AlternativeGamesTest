@@ -1,10 +1,14 @@
 using System.Collections.Generic;
 using AlternativeGamesTest.UI.Base;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace AlternativeGamesTest.UI
 {
     public class RatingPanel : ArrayClickableView<RatingRowView>
     {
+        [SerializeField] private ScrollRect scroll;
+
         public List<PlayerRatingViewData> Data
         {
             set
@@ -32,6 +36,9 @@ namespace AlternativeGamesTest.UI
                 {
                     _views[i].IsSelected = i == viewIndex;
                 }
+
+                var scrollPosition = 1f - ((float)viewIndex / (float)Length);
+                scroll.verticalNormalizedPosition = scrollPosition;
             }
         }
     }

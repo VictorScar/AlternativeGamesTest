@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AlternativeGamesTest.Service;
 using AlternativeGamesTest.UI;
 using AlternativeGamesTest.UI.Base;
+using UnityEngine;
 
 namespace AlternativeGamesTest.Scenario
 {
@@ -12,14 +13,17 @@ namespace AlternativeGamesTest.Scenario
         private RatingScreen _screen;
         private RatingPanel _panel;
         private PlayerStatisticService _statisticService;
+        private UISelectionInputController _selectionInput;
+        
         private int _selectedElement;
-
+        
         protected override void OnInit()
         {
             base.OnInit();
             _screen = Data.UISystem.GetScreen<RatingScreen>();
             _panel = _screen.RatingPanel;
             _statisticService = Data.Services.StatisticService;
+            _selectionInput = Data.Services.InputService.UISelectionController;
         }
 
         protected override async Task RunInternal(CancellationToken token)
@@ -45,6 +49,7 @@ namespace AlternativeGamesTest.Scenario
 
             _panel.Data = ratingViewData;
             _panel.onElementClicked += OnElementClicked;
+            _selectionInput.onInputPerfomed += ChangeSelectedElement;
             _screen.Show();
             _panel.SelectView(_selectedElement);
 
@@ -54,13 +59,21 @@ namespace AlternativeGamesTest.Scenario
         protected override void OnStop()
         {
             if(_panel) _panel.onElementClicked -= OnElementClicked;
-            
+            _selectionInput.onInputPerfomed -= ChangeSelectedElement;
             _screen?.Hide();
         }
 
         private void OnElementClicked(int viewIndex)
         {
             _selectedElement = viewIndex;
+            _panel.SelectView(_selectedElement);
+        }
+        
+        private void ChangeSelectedElement(int inputDirection)
+        {
+            _selectedElement += inputDirection;
+            _selectedElement = Mathf.Clamp(_selectedElement,0, _panel.Length);
+            
             _panel.SelectView(_selectedElement);
         }
     }

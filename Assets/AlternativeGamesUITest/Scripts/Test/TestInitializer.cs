@@ -10,7 +10,7 @@ public class TestInitializer : MonoBehaviour
     [SerializeField] private UISystem uiSystem;
     [SerializeField] private ScenarioContainer scenarioContainer;
     [SerializeField] private PlayersStatisticDataConfig mockRatingDataConfig;
-
+    [SerializeField] private InputService inputService;
     private GameServices _gameServices;
     private CancellationTokenSource _gameCancellationSource;
 
@@ -23,7 +23,7 @@ public class TestInitializer : MonoBehaviour
     {
         _gameCancellationSource = new CancellationTokenSource();
         var configService = new ConfigService(iconsConfig);
-        _gameServices = new GameServices(configService, mockRatingDataConfig);
+        _gameServices = new GameServices(configService, mockRatingDataConfig, inputService);
 
         uiSystem.Init();
         scenarioContainer.Init(_gameServices, uiSystem);

@@ -618,6 +618,7 @@ MonoBehaviour:
     rid: 6300550328000708613
   root: {fileID: 586972060754567423}
   prefab: {fileID: 5942835064357750693, guid: 4584933a1c14759449b32190f781f00a, type: 3}
+  scroll: {fileID: 5172344248979722459}
   references:
     version: 2
     RefIds:
@@ -843,7 +844,7 @@ MonoBehaviour:
     m_Left: 20
     m_Right: 20
     m_Top: 20
-    m_Bottom: 0
+    m_Bottom: 20
   m_ChildAlignment: 0
   m_Spacing: 15
   m_ChildForceExpandWidth: 1

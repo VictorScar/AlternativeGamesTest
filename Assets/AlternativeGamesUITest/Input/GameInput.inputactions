@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "name": "GameInput",
+    "maps": [
+        {
+            "name": "UISelection",
+            "id": "86e6aab6-30f1-40cf-abc0-38383d364708",
+            "actions": [
+                {
+                    "name": "ArrowInput",
+                    "type": "Value",
+                    "id": "43763cd1-55e9-49a0-9ac1-c5ad589fe44a",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "1D Axis",
+                    "id": "ccec0475-a5b1-41fe-8a53-89769599d99b",
+                    "path": "1DAxis",
+                    "interactions": "Press",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "ArrowInput",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "1145e45d-0150-4a04-9bbb-f4c91a0c0479",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ArrowInput",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "09b8a1b0-05ea-4f8a-9073-12fb99bde765",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ArrowInput",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
