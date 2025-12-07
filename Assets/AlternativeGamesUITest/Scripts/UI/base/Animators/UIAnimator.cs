@@ -28,7 +28,7 @@ namespace AlternativeGamesTest.UI.Base
         public Coroutine Animate(UIView view, Action onComplete = null)
         {
             Cancel();
-            _animation = _runner.StartCoroutine(AnimateInternal(view, onComplete));
+            _animation = _runner.StartAnimation(AnimateInternal(view, onComplete));
             return _animation;
         }
 
@@ -42,7 +42,7 @@ namespace AlternativeGamesTest.UI.Base
         {
             if (_animation != null)
             {
-                _runner.StopCoroutine(_animation);
+                _runner.StopAnimation(_animation);
                 _animation = null;
             }
         }
