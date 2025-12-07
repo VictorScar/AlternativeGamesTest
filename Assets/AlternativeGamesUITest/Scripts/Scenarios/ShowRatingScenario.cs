@@ -29,6 +29,7 @@ namespace AlternativeGamesTest.Scenario
         protected override async Task RunInternal(CancellationToken token)
         {
             _selectedElement = 0;
+            _selectionInput.Enable();
             var ratingData = _statisticService.GetRatingData();
             var ratingViewData = new List<PlayerRatingViewData>();
 
@@ -60,6 +61,7 @@ namespace AlternativeGamesTest.Scenario
         {
             if(_panel) _panel.onElementClicked -= OnElementClicked;
             _selectionInput.onInputPerfomed -= ChangeSelectedElement;
+            _selectionInput.Disable();
             _screen?.Hide();
         }
 

@@ -13,38 +13,35 @@ namespace AlternativeGamesTest.UI.Base
 
         public event Action onClick;
 
-        public void OnPointerUp(PointerEventData eventData)
+        void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
         {
             if (!isInteractable) return;
-            //Debug.Log($"Pointer Up");
-           // pointerDownAnimator?.Cancel(this);
+
             pointerUpAnimator?.Cancel(this);
             pointerUpAnimator?.Animate(this);
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        void IPointerDownHandler.OnPointerDown(PointerEventData eventData)
         {
             if (!isInteractable) return;
-           // Debug.Log($"Pointer Down");
+
             pointerUpAnimator?.Cancel(this);
             pointerDownAnimator?.Cancel(this);
             pointerDownAnimator?.Animate(this);
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
         {
-           // Debug.Log($"On Pointer Enter");
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
         {
-           // Debug.Log($"On Pointer Exit");
         }
 
-        public void OnPointerClick(PointerEventData eventData)
+        void IPointerClickHandler.OnPointerClick(PointerEventData eventData)
         {
             if (!isInteractable) return;
-            Debug.Log($"Pointer Click");
+            // Debug.Log($"Pointer Click");
             onClick?.Invoke();
         }
     }

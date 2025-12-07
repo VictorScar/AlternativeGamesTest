@@ -23,6 +23,7 @@ public class TestInitializer : MonoBehaviour
     {
         _gameCancellationSource = new CancellationTokenSource();
         var configService = new ConfigService(iconsConfig);
+        inputService.Init();
         _gameServices = new GameServices(configService, mockRatingDataConfig, inputService);
 
         uiSystem.Init();
