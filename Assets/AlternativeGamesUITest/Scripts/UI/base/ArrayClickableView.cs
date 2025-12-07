@@ -18,9 +18,9 @@ namespace AlternativeGamesTest.UI.Base
             }
         }
         
-        protected override void OnInit()
+        protected override void OnInit(UIAnimationsRunner runner)
         {
-            base.OnInit();
+            base.OnInit(runner);
             _handlers.Clear();
         }
 

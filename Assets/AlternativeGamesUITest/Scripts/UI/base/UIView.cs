@@ -15,18 +15,18 @@ namespace AlternativeGamesTest.UI.Base
         public RectTransform Rect => rect;
         public CanvasGroup CG => cg;
 
-        public void Init()
+        public void Init(UIAnimationsRunner runner)
         {
-            showAnimator?.Init(this);
-            hideAnimator?.Init(this);
-            OnInit();
+            showAnimator?.Init(this, runner);
+            hideAnimator?.Init(this, runner);
+            OnInit(runner);
         }
 
  
         public void Show(bool immediately = false)
         {
             gameObject.SetActive(true);
-            hideAnimator?.Cancel(this);
+            hideAnimator?.Cancel();
 
             if (!immediately)
             {
@@ -41,7 +41,7 @@ namespace AlternativeGamesTest.UI.Base
   
         public void Hide(bool immediately = false)
         {
-            showAnimator?.Cancel(this);
+            showAnimator?.Cancel();
 
             if (!immediately)
             {
@@ -53,7 +53,7 @@ namespace AlternativeGamesTest.UI.Base
             }
         }
 
-        protected virtual void OnInit()
+        protected virtual void OnInit(UIAnimationsRunner runner)
         {
         }
 

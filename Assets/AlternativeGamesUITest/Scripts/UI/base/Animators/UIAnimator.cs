@@ -12,10 +12,12 @@ namespace AlternativeGamesTest.UI.Base
         [Header("Easing Settings")] [SerializeField]
         protected EaseType easeType = EaseType.OutQuad;
 
+        protected UIAnimationsRunner _runner;
         protected Coroutine _animation;
 
-        public void Init(UIView view)
+        public void Init(UIView view, UIAnimationsRunner runner)
         {
+            _runner = runner;
             OnInit(view);
         }
 
@@ -25,8 +27,8 @@ namespace AlternativeGamesTest.UI.Base
 
         public Coroutine Animate(UIView view, Action onComplete = null)
         {
-            Cancel(view);
-            if(view.gameObject.activeInHierarchy) _animation = view.StartCoroutine(AnimateInternal(view, onComplete));
+            Cancel();
+            _animation = _runner.StartCoroutine(AnimateInternal(view, onComplete));
             return _animation;
         }
 
@@ -36,11 +38,11 @@ namespace AlternativeGamesTest.UI.Base
             onComplete?.Invoke();
         }
 
-        public void Cancel(UIView view)
+        public void Cancel()
         {
             if (_animation != null)
             {
-                view.StopCoroutine(_animation);
+                _runner.StopCoroutine(_animation);
                 _animation = null;
             }
         }

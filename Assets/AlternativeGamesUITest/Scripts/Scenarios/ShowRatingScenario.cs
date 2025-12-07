@@ -51,8 +51,8 @@ namespace AlternativeGamesTest.Scenario
             _panel.Data = ratingViewData;
             _panel.onElementClicked += OnElementClicked;
             _selectionInput.onInputPerfomed += ChangeSelectedElement;
-            _screen.Show();
             _panel.SelectView(_selectedElement);
+            _screen.Show();
 
             await _screen.CloseBtn.WaitForClickAsync(Token);
         }

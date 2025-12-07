@@ -8,6 +8,8 @@ namespace AlternativeGamesTest.UI.Base
         [SerializeField] private RectTransform root;
         [SerializeField] private TView prefab;
 
+        protected UIAnimationsRunner _runner;
+        
         protected List<TView> _views = new List<TView>();
 
         public int Length
@@ -41,10 +43,11 @@ namespace AlternativeGamesTest.UI.Base
             }
         }
 
-        protected override void OnInit()
+        protected override void OnInit(UIAnimationsRunner runner)
         {
-            base.OnInit();
-
+            base.OnInit(runner);
+            _runner = runner;
+            
             var defaultViews = GetComponentsInChildren<TView>();
 
             if (defaultViews != null)
@@ -58,7 +61,7 @@ namespace AlternativeGamesTest.UI.Base
 
         private void AddView(TView view)
         {
-            view.Init();
+            view.Init(_runner);
             _views.Add(view);
             OnViewCreated(view);
         }

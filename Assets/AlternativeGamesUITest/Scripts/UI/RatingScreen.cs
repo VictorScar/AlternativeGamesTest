@@ -11,11 +11,11 @@ namespace AlternativeGamesTest.UI
         public RatingPanel RatingPanel => ratingPanel;
         public UIClickableView CloseBtn => closeBtn;
 
-        protected override void OnInit()
+        protected override void OnInit(UIAnimationsRunner runner)
         {
-            base.OnInit();
-            ratingPanel.Init();
-            closeBtn.Init();
+            base.OnInit(runner);
+            ratingPanel.Init(runner);
+            closeBtn.Init(runner);
         }
     }
 }

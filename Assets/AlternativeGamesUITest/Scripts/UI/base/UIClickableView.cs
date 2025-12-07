@@ -13,11 +13,18 @@ namespace AlternativeGamesTest.UI.Base
 
         public event Action onClick;
 
+        protected override void OnInit(UIAnimationsRunner runner)
+        {
+            base.OnInit(runner);
+            pointerDownAnimator?.Init(this, runner);
+            pointerUpAnimator?.Init(this, runner);
+        }
+
         void IPointerUpHandler.OnPointerUp(PointerEventData eventData)
         {
             if (!isInteractable) return;
 
-            pointerUpAnimator?.Cancel(this);
+            pointerUpAnimator?.Cancel();
             pointerUpAnimator?.Animate(this);
         }
 
@@ -25,8 +32,8 @@ namespace AlternativeGamesTest.UI.Base
         {
             if (!isInteractable) return;
 
-            pointerUpAnimator?.Cancel(this);
-            pointerDownAnimator?.Cancel(this);
+            pointerUpAnimator?.Cancel();
+            pointerDownAnimator?.Cancel();
             pointerDownAnimator?.Animate(this);
         }
 

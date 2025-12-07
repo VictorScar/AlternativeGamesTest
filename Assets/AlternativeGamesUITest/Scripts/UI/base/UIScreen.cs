@@ -6,9 +6,9 @@ namespace AlternativeGamesTest.UI.Base
     {
         [SerializeField] private bool showInInit = false;
 
-        protected override void OnInit()
+        protected override void OnInit(UIAnimationsRunner runner)
         {
-            base.OnInit();
+            base.OnInit(runner);
 
             if (showInInit)
             {

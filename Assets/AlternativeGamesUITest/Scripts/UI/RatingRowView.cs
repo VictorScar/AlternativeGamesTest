@@ -35,12 +35,12 @@ namespace AlternativeGamesTest.UI
             {
                 if (value)
                 {
-                    deselectedAnimation?.Cancel(this);
+                    deselectedAnimation?.Cancel();
                     selectedAnimation?.Animate(this);
                 }
                 else
                 {
-                    selectedAnimation?.Cancel(this);
+                    selectedAnimation?.Cancel();
                     deselectedAnimation?.Animate(this);
                 }
 
@@ -58,11 +58,11 @@ namespace AlternativeGamesTest.UI
             }
         }
 
-        protected override void OnInit()
+        protected override void OnInit(UIAnimationsRunner runner)
         {
-            base.OnInit();
-            selectedAnimation?.Init(this);
-            deselectedAnimation?.Init(this);
+            base.OnInit(runner);
+            selectedAnimation?.Init(this, runner);
+            deselectedAnimation?.Init(this, runner);
         }
     }
 }

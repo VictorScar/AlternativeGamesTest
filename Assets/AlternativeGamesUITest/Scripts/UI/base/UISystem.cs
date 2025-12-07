@@ -5,14 +5,15 @@ namespace AlternativeGamesTest.UI.Base
     public class UISystem : MonoBehaviour
     {
         [SerializeField] private UIScreen[] screens;
-
+        [SerializeField] private UIAnimationsRunner animationsRunner;
+        
         public void Init()
         {
             if (screens != null)
             {
                 foreach (var screen in screens)
                 {
-                    screen.Init();
+                    screen.Init(animationsRunner);
                 }
             }
         }
